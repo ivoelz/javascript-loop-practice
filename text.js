@@ -42,12 +42,20 @@ function runLoops() {
         "do-while-loop" ==>  runDoWhileLoop()
     */
 
-
-
-
+    if (selectedLoop === "for-loop")
+    {
+        runForLoop();
+    }
+    else if (selectedLoop === "while-loop")
+    {
+        runWhileLoop();
+    }
+    else
+    {
+        runDoWhileLoop();
+    }
 
 }
-
 
 function runWhileLoop() {
     var number = parseInt($("#myNumber").val());
@@ -61,10 +69,15 @@ function runWhileLoop() {
         (Or for a challenge, concatenate the first "number" letters of the alphabet!)
     */
 
+    var count = 5;
+    while (count < (number + 5))
+    {
+        output += String.fromCharCode(count);
+        count++;
+    }
 
     $("#while-result").text(output);
 }
-
 
 function runForLoop() {
     var number = parseInt($("#myNumber").val());
@@ -74,6 +87,11 @@ function runForLoop() {
         Use a for loop to add the numbers 1 through "number"
         into the variable "sum".
     */
+
+    for (var count = 0; count <= number; count++)
+    {
+        sum += count;
+    }
 
     $("#for-result").text(sum);
 }
@@ -89,6 +107,11 @@ function runDoWhileLoop() {
         is 5, then output should be "12345".
     */
 
+    var count = 0;
+    do {
+        output += (count + 1);
+        count++;
+    } while (count < number);
 
     $("#do-while-result").text(output);
 }
